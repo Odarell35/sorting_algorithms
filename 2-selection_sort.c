@@ -20,6 +20,8 @@ int findminimum(int array[], int size, int idx)
 			min_index = i;
 		}
 	}
+	if ( min_index == idx)
+		return (-1);
 return (min_index);
 }
 /**
@@ -39,9 +41,12 @@ void selection_sort(int *array, size_t size)
 	for (i = 0; i < (int)size - 1; i++)
 	{
 		min_index = findminimum(array, size, i);
-		temp = array[i];
-		array[i] = array[min_index];
-		array[min_index] = temp;
-		print_array(array, size);
+		if (min_index != -1)
+		{
+			temp = array[i];
+			array[i] = array[min_index];
+			array[min_index] = temp;
+			print_array(array, size);
+		}
 	}
 }
