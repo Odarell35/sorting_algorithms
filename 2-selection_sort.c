@@ -1,5 +1,28 @@
 #include "sort.h"
 /**
+ * findminimum - looks for the minimum value in an array
+ * @array: array to search
+ * @size: size of array
+ * @idx: index number
+ * Return: min value
+ */
+int findminimum(int array[], int size, int idx)
+{
+	int min, i, min_index;
+
+	min = array[idx];
+	min_index = idx;
+	for (i = idx; i < size; i++)
+	{
+		if (array[i] < min)
+		{
+			min =  array[i];
+			min_index = i;
+		}
+	}
+return (min_index);
+}
+/**
  * selection_sort - selects the smallest element from an unsorted list
  * in each iteration and places that element at
  * the beginning of the unsorted list.
@@ -9,21 +32,16 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t i, store, k, temp;
+	int min_index, temp, i;
 
 	if (size < 2)
 		return;
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; i < (int)size - 1; i++)
 	{
-		store = i;
-		for (k = i + 1; k < size; k++)
-		{
-			if (array[k] < array[store])
-				store = k;
-		}
-		temp = array[store];
-		array[store] = array[i];
-		array[i] = temp;
+		min_index = findminimum(array, size, i);
+		temp = array[i];
+		array[i] = array[min_index];
+		array[min_index] = temp;
 		print_array(array, size);
 	}
 }
