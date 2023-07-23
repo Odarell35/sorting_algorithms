@@ -20,7 +20,7 @@ int findminimum(int array[], int size, int idx)
 			min_index = i;
 		}
 	}
-	if ( min_index == idx)
+	if (min_index == idx)
 		return (-1);
 return (min_index);
 }
