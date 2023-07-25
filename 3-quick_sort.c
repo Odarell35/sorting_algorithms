@@ -34,14 +34,21 @@ int partition(int *array, int low, int high, size_t size)
 		if (array[j] < pivot)
 		{
 			i++;
-			swap(&array[i], &array[j]);
-			print_array(array, size);
+			if (i != j)
+			{
+				swap(&array[i], &array[j]);
+				print_array(array, size);
+			}
 		}
-		j++;
+	j++;
 	}
 
-	swap(&array[i + 1], &array[high]);
-	print_array(array, size);
+	if (array[i + 1] != array[high])
+	{
+		swap(&array[i + 1], &array[high]);
+		print_array(array, size);
+	}
+
 	return (i + 1);
 }
 
@@ -49,7 +56,7 @@ int partition(int *array, int low, int high, size_t size)
  * quick_sort_recursive - Quick sort using Lomuto partition
  * scheme (recursive function)
  * @array: Array to be sorted
- * @low: Starting index of the partition
+ * @low: Starting/beginning index of the partition
  * @high: Ending index of the partition
  * @size: Size of the array
  */
