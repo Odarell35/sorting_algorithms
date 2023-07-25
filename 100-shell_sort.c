@@ -12,7 +12,7 @@ void shell_sort(int *array, size_t size)
 	size_t interval, i, j;
 	int temp;
 
-/*	value = _pow_recursion(3, (int)size);*/
+	interval = 1;
 	if (size < 2)
 		return;
 	while (interval < (size / 3))
