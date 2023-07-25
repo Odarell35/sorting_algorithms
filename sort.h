@@ -37,5 +37,7 @@ void print_list(const listint_t *list);
 /*prototype for 1-insertion_sort_list.c*/
 void insertion_sort_list(listint_t **list);
 void swapNode(listint_t **a, listint_t **b);
-
+ /*---prototype for shell sort*/
+void shell_sort(int *array, size_t size);
+int _pow_recursion(int x, int y);
 #endif
